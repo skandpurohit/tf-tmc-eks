@@ -1,4 +1,9 @@
-# tmc-terraform-playground
+# tf-tmc-eks
 
-* Validate connectivity with TMC ORG
-* Retrieve Cluster Properties by Passing Cluster Name
+Provision and Manage Full Lifecycle of AWS EKS through TMC.
+
+## Prerequisites
+
+### AWS Account
+
+### TMC Org Access
