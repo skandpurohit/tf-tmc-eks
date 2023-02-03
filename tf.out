@@ -1,0 +1,9 @@
+[0m[1mvar.vmw_cloud_api_token[0m
+  API TOKEN FOR VMWARE CLOUD SERVICES
+
+  [1mEnter a value:[0m [0m
+
+Interrupt received.
+Please wait for Terraform to exit or data loss may occur.
+Gracefully shutting down...
+
