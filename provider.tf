@@ -2,10 +2,13 @@ terraform {
   required_providers {
     tanzu-mission-control = {
       source  = "vmware/tanzu-mission-control"
-      version = "1.1.4"
+      version = "1.1.7"
+    }
     }
   }
-}
+provider "aws" {
+  region = "us-east-1"
+}  
 
 provider "tanzu-mission-control" {
   # Configuration options
@@ -15,4 +18,8 @@ provider "tanzu-mission-control" {
   # if you are using dev or different csp endpoint, change the default value below
   # for production environments the vmw_cloud_endpoint is console.cloud.vmware.com
   # vmw_cloud_endpoint = "console.cloud.vmware.com" or optionally use VMW_CLOUD_ENDPOINT env var
+}
+
+data "aws_vpc" "default" {
+    default = true
 }

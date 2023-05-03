@@ -2,15 +2,16 @@
 // Operations supported : Read, Create, Update & Delete
 
 // Read Tanzu Mission Control AWS EKS cluster : fetch cluster details
-data "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
-  credential_name = "sp-eks-tf-cred" // Required
-  region          = "us-east-1"          // Required
-  name            = "sp-tf-auto"        // Required
-}
+# data "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
+#   credential_name = "sp-poc"      // Required
+#   region          = "us-east-1"          // Required
+#   name            = "sp-tf-auto"         // Required
+# }
+
 
 // Create Tanzu Mission Control AWS EKS cluster entry
 resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
-  credential_name = "sp-eks-tf-cred" // Required
+  credential_name = "sp-poc" // Required
   region          = "us-east-1"          // Required
   name            = "sp-tf-auto"        // Required
 
@@ -26,7 +27,7 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
     #proxy         = "" //if used 
 
     config {
-      role_arn           = "arn:aws:iam::687456942232:role/control-plane.11197733977849512268.eks.tmc.cloud.vmware.com" // Required, forces new
+      role_arn           = "arn:aws:iam::687456942232:role/control-plane.3330046763422542927.eks.tmc.cloud.vmware.com" // Required, forces new
       kubernetes_version = "1.24"                // Required
       tags               = { "mode" : "terraform" }
 
@@ -52,7 +53,7 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
           "sg-0395139026e380a43",
         ]
         subnet_ids = [ // Forces new
-          "subnet-0071b3b1ec3233eee",
+         "subnet-0071b3b1ec3233eee",
           "subnet-04c5221ee2db53796",
           "subnet-0ecfbfb553eef704a",
           "subnet-09c63bb69bf76578e"
@@ -68,10 +69,10 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
 
       spec {
         // Refer to nodepool's schema
-        role_arn       = "arn:aws:iam::687456942232:role/worker.11197733977849512268.eks.tmc.cloud.vmware.com" // Required
+        role_arn       = "arn:aws:iam::687456942232:role/worker.3330046763422542927.eks.tmc.cloud.vmware.com" // Required
         ami_type       = "AL2_x86_64"
         capacity_type  = "ON_DEMAND"
-        root_disk_size = 40 // In GiB, default: 20GiB
+        root_disk_size = 20 // In GiB, default: 20GiB
         tags           = { "mode" : "automation" }
         node_labels    = { "tool" : "tf" }
 
