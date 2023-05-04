@@ -109,5 +109,46 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
       }
     }
 
+
+    nodepool {
+      info {
+        name        = "second-np"
+        description = "second np for eks"
+      }
+
+      spec {
+        role_arn    = "arn:aws:iam::687456942232:role/worker.3330046763422542927.eks.tmc.cloud.vmware.com" // Required
+        tags        = { "nptag" : "nptagvalue7" }
+        node_labels = { "nplabelkey" : "nplabelvalue" }
+
+        subnet_ids = [ // Required
+          "subnet-0071b3b1ec3233eee",
+          "subnet-04c5221ee2db53796",
+          "subnet-0ecfbfb553eef704a",
+          "subnet-09c63bb69bf76578e"
+        ]
+
+        launch_template {
+          name    = "myLaunchTemplate"
+          version = "1"
+        }
+
+        scaling_config {
+          desired_size = 2
+          max_size     = 4
+          min_size     = 1
+        }
+
+        update_config {
+          max_unavailable_percentage = "12"
+        }
+
+        taints {
+          effect = "PREFER_NO_SCHEDULE"
+          key    = "randomkey"
+          value  = "randomvalue"
+        }
+      }
+    }
   }
 }
