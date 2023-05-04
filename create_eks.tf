@@ -70,7 +70,7 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
       spec {
         // Refer to nodepool's schema
         role_arn       = "arn:aws:iam::687456942232:role/worker.3330046763422542927.eks.tmc.cloud.vmware.com" // Required
-        ami_type       = "AL2_x86_64"
+        ami_type       = "CUSTOM"
         capacity_type  = "ON_DEMAND"
         root_disk_size = 20 // In GiB, default: 20GiB
         tags           = { "mode" : "automation" }
@@ -82,6 +82,11 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
           "subnet-0ecfbfb553eef704a",
           "subnet-09c63bb69bf76578e"
         ]
+
+      ami_info {
+        ami_id = "ami-0889a44b331db0194"
+        override_bootstrap_cmd = "#!/bin/bash\n/etc/eks/bootstrap.sh sp-tf-auto"
+      }
 
         remote_access {
           ssh_key = "sp-tf-auto-key" // Required (if remote access is specified)
