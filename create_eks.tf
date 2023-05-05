@@ -13,7 +13,7 @@
 resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
   credential_name = "sp-poc" // Required
   region          = "us-east-1"          // Required
-  name            = "sp-tf-auto"        // Required
+  name            = "sp-eks-tf"        // Required
 
   ready_wait_timeout = "30m" // Wait time for cluster operations to finish (default: 30m).
 
@@ -84,7 +84,7 @@ resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
         ]
 
       ami_info {
-        ami_id = "ami-0889a44b331db0194"
+        ami_id = "ami-0afbd630a7e5ec673"
         override_bootstrap_cmd = "#!/bin/bash\n/etc/eks/bootstrap.sh sp-tf-auto"
       }
 
