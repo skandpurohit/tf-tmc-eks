@@ -1,13 +1,17 @@
 terraform {
   required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.8.0"
+    }
     tanzu-mission-control = {
       source  = "vmware/tanzu-mission-control"
-      version = "1.1.7"
+      version = "1.1.8"
     }
     }
   }
 provider "aws" {
-  region = "us-east-1"
+  region = "us-west-2"
 }  
 
 provider "tanzu-mission-control" {
@@ -20,6 +24,6 @@ provider "tanzu-mission-control" {
   # vmw_cloud_endpoint = "console.cloud.vmware.com" or optionally use VMW_CLOUD_ENDPOINT env var
 }
 
-data "aws_vpc" "default" {
-    default = true
-}
+# data "aws_vpc" "default" {
+#     default = true
+# }

@@ -11,6 +11,6 @@ variable "vmw_cloud_api_token" {
 
 variable "vpc_id" {
   type = string
-  default = "vpc-02ebf41aabc418b53"
+  default = "vpc-095cfe978954425ff"
   description = "VPC ID"
 }

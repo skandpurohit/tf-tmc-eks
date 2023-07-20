@@ -1,12 +1,12 @@
 # # Create AWS_EKS credential
 # resource "tanzu-mission-control_credential" "aws_eks_cred" {
-#   name = "test-sp-cred-terraform"
+#   name = "sp-eks-new"
 
 #   meta {
-#     description = "credential"
+#     description = "credential for eks creation"
 #     labels = {
-#       "automation_type" : "terraform",
-#       "user"            : "sp"
+#       "automation" : "true",
+#       "automation_type" : "terraform"
 #     }
 #   }
 
@@ -17,15 +17,10 @@
 #       aws_credential {
 #         account_id = "687456942232"
 #         iam_role{
-#           arn = "arn:aws:iam::687456942232:role/clusterlifecycle.2273571689724047707.eks.tmc.cloud.vmware.com"
+#           arn = "arn:aws:iam::687456942232:role/clusterlifecycle.1749832632213897705.eks.tmc.cloud.vmware.com"
 #           ext_id =""
 #         }
 #       }
 #     }
 #   }
-# }
-
-
-# data "tanzu-mission-control_credential" "test_cred" {
-#   name = "eks-dev-cred-sp"
 # }
