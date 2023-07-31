@@ -13,7 +13,7 @@
 resource "tanzu-mission-control_ekscluster" "tf_eks_cluster" {
   credential_name = "sp-eks-new" // Required
   region          = "us-east-2"          // Required
-  name            = "sp-eks-east-2-tf"        // Required
+  name            = local.cluster_name        // Required
 
   ready_wait_timeout = "30m" // Wait time for cluster operations to finish (default: 30m).
 

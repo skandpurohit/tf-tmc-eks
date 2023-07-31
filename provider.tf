@@ -6,12 +6,12 @@ terraform {
     }
     tanzu-mission-control = {
       source  = "vmware/tanzu-mission-control"
-      version = "1.1.8"
+      version = "1.2.0"
     }
     }
   }
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-2"
 }  
 
 provider "tanzu-mission-control" {
