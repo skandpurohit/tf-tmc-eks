@@ -26,4 +26,6 @@ resource "tanzu-mission-control_kustomization" "create_cluster_kustomization" {
        namespace = "tanzu-continuousdelivery-resources" # Required
     }
   }
+
+  depends_on = [tanzu-mission-control_ekscluster.tf_eks_cluster, tanzu-mission-control_namespace.create_namespace, tanzu-mission-control_git_repository.create_cluster_git_repository]
 }

@@ -14,4 +14,6 @@ resource "tanzu-mission-control_namespace" "create_namespace" {
     workspace_name = "default" # Default: default
     attach         = false     # Default: false
   }
+
+  depends_on = [tanzu-mission-control_ekscluster.tf_eks_cluster]
 }

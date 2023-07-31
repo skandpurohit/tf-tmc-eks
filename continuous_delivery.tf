@@ -29,4 +29,7 @@ resource "tanzu-mission-control_git_repository" "create_cluster_git_repository" 
     #   commit = "testCommit"
     } 
   }
+
+  depends_on = [tanzu-mission-control_ekscluster.tf_eks_cluster]
+
 }
