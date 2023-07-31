@@ -21,10 +21,9 @@ resource "tanzu-mission-control_kustomization" "create_cluster_kustomization" {
     path = "/" # Required
     prune = true
     interval = "5m" # Default: 5m
-    target_namespace = "default"
     source {
         name = "tmc-cd-new" # Required
-        namespace = "tanzu-continuousdelivery-resources" # Required
+       namespace = "tanzu-continuousdelivery-resources" # Required
     }
   }
 }
